@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taylor-Grey Miller | Philosophy</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy:    #1a2744;
+      --gold:    #8a6f3e;
+      --cream:   #f9f6f1;
+      --text:    #2c2c2c;
+      --muted:   #6b6b6b;
+      --rule:    #c9bfae;
+      --link:    #2a4a8a;
+      --link-hover: #8a6f3e;
+      --max-w:   780px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    /* ── Page wrapper ── */
+    .page {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 48px 28px 80px;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      gap: 36px;
+      align-items: flex-start;
+      padding-bottom: 32px;
+      border-bottom: 2px solid var(--navy);
+      margin-bottom: 36px;
+    }
+
+    header img {
+      width: 150px;
+      height: 190px;
+      object-fit: cover;
+      object-position: top;
+      flex-shrink: 0;
+      border: 1px solid var(--rule);
+      box-shadow: 3px 3px 12px rgba(0,0,0,0.12);
+    }
+
+    .header-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .header-text .title-line {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .contact-info {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.93rem;
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    .contact-info a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    .contact-info a:hover { color: var(--link-hover); text-decoration: underline; }
+
+    /* ── Nav links row ── */
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      margin-top: 16px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links a {
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .nav-links a:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ── Bio section ── */
+    .bio {
+      margin-bottom: 40px;
+      font-size: 1rem;
+    }
+
+    /* ── Section dividers ── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 42px 0 20px;
+    }
+
+    .section-label::before,
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .section-label span {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    /* ── Category headings ── */
+    h2.category {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--navy);
+      margin: 28px 0 10px;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Paper entries ── */
+    .paper {
+      margin-bottom: 22px;
+      padding-left: 16px;
+      border-left: 2px solid var(--rule);
+      font-size: 0.97rem;
+      line-height: 1.65;
+    }
+
+    .paper a {
+      color: var(--link);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .paper a:hover { color: var(--link-hover); text-decoration: underline; }
+
+    .paper .journal {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .paper .status {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    details {
+      margin-top: 6px;
+    }
+
+    details summary {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::before {
+      content: '▸ ';
+      font-size: 0.7rem;
+    }
+    details[open] summary::before { content: '▾ '; }
+    details summary:hover { color: var(--gold); }
+
+    .abstract {
+      margin-top: 8px;
+      padding: 12px 16px;
+      background: rgba(26,39,68,0.04);
+      border-left: 3px solid var(--navy);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    /* ── In Progress ── */
+    .in-progress-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .in-progress-list li {
+      font-size: 0.95rem;
+      color: var(--muted);
+      padding: 4px 0 4px 16px;
+      border-left: 2px solid var(--rule);
+      margin-bottom: 6px;
+      font-style: italic;
+    }
+
+    /* ── CV section ── */
+    .cv-block {
+      margin: 8px 0 0;
+    }
+    .cv-block a {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--navy);
+      text-decoration: none;
+      border: 1px solid var(--navy);
+      padding: 6px 18px;
+      display: inline-block;
+      transition: background 0.15s, color 0.15s;
+    }
+    .cv-block a:hover {
+      background: var(--navy);
+      color: var(--cream);
+    }
+
+    /* ── Contact ── */
+    address {
+      font-style: normal;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.93rem;
+      line-height: 2;
+      color: var(--text);
+    }
+    address a { color: var(--link); text-decoration: none; }
+    address a:hover { color: var(--link-hover); text-decoration: underline; }
+
+    /* ── External profiles ── */
+    .profiles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .profiles a {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--rule);
+    }
+    .profiles a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 64px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 560px) {
+      header { flex-direction: column; align-items: center; text-align: center; }
+      .header-text h1 { font-size: 1.7rem; }
+      .nav-links { justify-content: center; }
+      .section-label { margin: 32px 0 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ════════════════════════════════════
+       HEADER
+       ════════════════════════════════════ -->
+  <header>
+    <!--
+      PHOTO: Replace the src below with a path to Taylor's photo.
+      If you save his photo as "taylor.jpg" in the same folder as this file,
+      change src to: src="taylor.jpg"
+    -->
+    <img src="https://www.taylor-grey.com/wp-content/uploads/2020/04/Taylor-walking-1.jpg"
+         alt="Taylor-Grey Miller" />
+
+    <div class="header-text">
+      <h1>Taylor-Grey Miller</h1>
+      <div class="title-line">Assistant Professor of Philosophy &nbsp;·&nbsp; Brigham Young University</div>
+
+      <div class="contact-info">
+        Department of Philosophy, Brigham Young University<br/>
+        <a href="mailto:taylorgrey.miller@gmail.com">taylorgrey.miller@gmail.com</a>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#bio">About</a>
+        <a href="#research">Research</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+        <a href="https://ldsphilosophyproject.humwp.byu.edu/" target="_blank">LDS Philosophy Project</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════
+       BIO
+       ════════════════════════════════════ -->
+  <section id="bio" class="bio">
+    <p>
+      I am an Assistant Professor of Philosophy at Brigham Young University. I'm interested in
+      metaphysics, in particular the relationships that essence, ground, and metaphysical generation
+      bear to one another. I'm also interested in various issues in philosophy of religion and
+      philosophical theology.
+    </p>
+    <p style="margin-top:12px;">
+      I'm also involved in the <a href="https://ldsphilosophyproject.humwp.byu.edu/" style="color:var(--link);">Latter-day Saint Philosophy Project</a>.
+    </p>
+  </section>
+
+  <!-- ════════════════════════════════════
+       RESEARCH PAPERS
+       ════════════════════════════════════ -->
+  <div class="section-label" id="research"><span>Research Papers</span></div>
+
+  <!-- ── Metaphysics ── -->
+  <h2 class="category">Metaphysics</h2>
+
+  <div class="paper">
+    <a href="https://philpapers.org/rec/LITTAI">Towards an Inferentialist Account of Essentialist Explanation</a>
+    (with Jon Erling Litland) &mdash; <span class="journal">Philosophical Studies</span>
+    &nbsp;<span class="status">forthcoming</span>
+    <details>
+      <summary>Abstract</summary>
+      <div class="abstract">
+        The fact that it is essential that <em>p</em> in some sense explains that <em>p</em>.
+        This paper makes one negative and one positive contribution. Negatively, the paper argues
+        that the sense of explanation is <em>not ground</em>, and proves—contra Vogt—that the issue
+        has nothing to do with whether one works with a representational or worldly notion of
+        ground. Positively, the paper proposes an inferentialist account of essence and uses that
+        to develop an account of essentialist explanation.
+      </div>
+    </details>
+  </div>
+
+  <div class="paper">
+    <a href="https://drive.google.com/file/d/1mNOSg410W1C2MkquxTK6wx1otLt4HDCf/view?usp=drive_link">Nothing Explains Essence</a>
+    &mdash; <span class="journal">Inquiry: An Interdisciplinary Journal of Philosophy</span>, 2023
+    <details>
+      <summary>Abstract</summary>
+      <div class="abstract">
+        Essentialist facts, facts about what is essential to what, are explanatorily distinctive.
+        They can often be appealed to in the course of metaphysically explaining some fact, while
+        themselves serving as explanatory ends. In other words, when one arrives in the course of
+        an explanation at an essentialist fact, it often seems like a legitimate place to stop.
+        In certain contexts, they seem to provide a metaphysical backstop to making further
+        explanatory demands. This paper defends the view that essentialist facts are zero-grounded.
+        Just as we can think of certain logical truths as truths derivable from the empty set of
+        premises, we can think of the zero-grounded facts as the facts that obtain in virtue of
+        the empty set of facts. On this picture, the essentialist facts are grounded, but they
+        are grounded literally in nothing—grounded for free, automatically, and by default.
+      </div>
+    </details>
+  </div>
+
+  <div class="paper">
+    <a href="https://journals.publishing.umich.edu/ergo/article/id/3118/">On the Reduction of Constitutive to Consequential Essence</a>
+    &mdash; <span class="journal">Ergo</span> vol. 9 (55), July 2023
+    <details>
+      <summary>Abstract</summary>
+      <div class="abstract">
+        Fine has introduced an important distinction between <em>constitutive</em> and
+        <em>consequential</em> essence. The constitutive essence of an object comprises truths
+        directly definitive of the object whereas the consequential essence comprises the class of
+        truths following logically from the directly definitive truths (subject to certain
+        constraints). Essence theorists then face a challenge: how shall we draw the line between
+        the truths directly definitive of an object and those that are mere consequences of them?
+        Fine offers an answer. We start with the object's consequential essence and then filter out
+        from its consequential essence the propositions that are there on account of being partly
+        grounded in others. The object's constitutive essence comprises what's left. I argue
+        against this account by presenting a range of cases where it is clear that certain truths
+        ought to count as constitutively essential for certain objects but where Fine's account
+        rules them out.
+      </div>
+    </details>
+  </div>
+
+  <div class="paper">
+    <a href="https://journals.publishing.umich.edu/phimp/article/id/1205/">Essentialist Non-Reductivism</a>
+    &mdash; <span class="journal">Philosophers' Imprint</span> vol. 22, Jan 2023
+    <details>
+      <summary>Abstract</summary>
+      <div class="abstract">
+        According to many contemporary metaphysicians, we ought to theorize in terms of grounding
+        because of its promise to explicate the idea of reality having a layered structure. However,
+        a tension emerges when one combines the layered structure view with the view that
+        higher-level facts are not reducible to lower-level facts. This tension emerges from two
+        problems. The first problem arises from the fact that grounding explanations entail true
+        universal generalizations. In order to satisfy this constraint, we will face serious
+        pressure to make sure the entities involved in the grounded facts are appropriately
+        connected to the entities involved in the grounding facts, otherwise the generalizations
+        associated with those grounding claims will come out false. However, ensuring the
+        appropriate connections seemingly leaves no way for the non-reductivist to fully squeeze
+        out reference to higher-level entities as we descend the levels of ground. This threatens
+        the result that some higher-level facts must be taken as fundamental, which the
+        non-reductivist cannot accept.
+        <br/><br/>
+        I argue that we can resolve the tension by taking the connections at issue to be
+        essentially true. We can call this view essentialist non-reductivism. One significant
+        upshot of the argument is that we can see not only that essentialist non-reductivism
+        successfully resolves the tension, but that in principle no better solution could be offered.
+      </div>
+    </details>
+  </div>
+
+
+  <!-- ── Epistemology ── -->
+  <h2 class="category">Epistemology</h2>
+
+  <div class="paper">
+    <a href="https://philpapers.org/rec/MILIIY">(Ir)rational Inquiry</a>
+    (with Andrew del Rio) &mdash; <span class="journal">Thought: A Journal of Philosophy</span> 12 (1): 35-42, 2023
+    <details>
+      <summary>Abstract</summary>
+      <div class="abstract">
+        The unity thesis is the thesis that epistemic norms and zetetic norms comprise a unified
+        normative domain. We argue against the unity thesis by presenting cases where the zetetic
+        norms issue requirements to adopt doxastic attitudes (essential to the inquiry) which are
+        forbidden by nearly platitudinous epistemic norms. After arguing that our cases are an
+        improvement upon extant cases in the literature, we canvas a range of responses unity
+        theorists might offer to resist our conclusion and argue that they either do not dissolve
+        the conflict between the epistemic and zetetic norms or introduce unmotivated restrictions
+        on the space of permissible inquiries.
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Philosophy of Religion ── -->
+  <h2 class="category">Philosophy of Religion &amp; Philosophical Theology</h2>
+
+  <div class="paper">
+    <a href="https://philarchive.org/rec/HADAGT">Against Grounding Trinitarianism</a>
+    (with Derek Haderlie) &mdash; <span class="journal">Faith and Philosophy</span>
+    &nbsp;<span class="status">forthcoming</span>
+    <details>
+      <summary>Abstract</summary>
+      <div class="abstract">
+        This paper examines whether a grounding-based model of the Trinity can do the work its defenders need it to do. The authors argue that any adequate version of the view must appeal to laws of ground with a distinctive explanatory role, but that this creates a dilemma: either the resulting account no longer preserves the required triune structure of fundamental reality, or it yields troubling consequences about the modal status of those grounding laws.
+      </div>
+    </details>
+  </div>
+
+  <div class="paper">
+    <a href="https://philpapers.org/rec/MILWCI-2">What Could it Mean to Say that Sex is Eternal</a>
+    &mdash; <span class="journal">Religious Studies</span>
+    &nbsp;<span class="status">forthcoming</span>
+    <details>
+      <summary>Abstract</summary>
+      <div class="abstract">
+        The point of this paper is to take up a philosophical examination of the Latter-day Saint
+        theological conception of the eternal significance of sex. This project is urgent for the
+        Latter-day Saint because the natural and straightforward way of interpreting their
+        theological claims about the eternal significance of sex appear to be incoherent, as I will
+        show.
+        <br/><br/>
+        The main worry for the straightforward treatment of these claims has to do with certain
+        commitments Latter-day Saints take up with respect to the nature of disembodied spirits.
+        Disembodied spirits don’t have bodies. As such they lack the characteristic features of
+        embodied things, and sex is as bodily a feature as any we confront in the course of our
+        lives. I argue that these conceptual obstacles can be overcome by attending to distinctive
+        aspects of the Latter-day Saint conception of divine creation. Doing so motivates
+        explicating the essences of premortal spirits in terms of world-indexed properties and
+        yields a unified account of several central aspects of Latter-day Saint theology.
+      </div>
+    </details>
+  </div>
+
+  <div class="paper">
+    <a href="https://philpapers.org/rec/MILOTH-4">On the Harm of Being Deputized by God</a>
+    &mdash; <span class="journal">Faith and Philosophy</span>
+    &nbsp;<span class="status">forthcoming</span>
+    <details>
+      <summary>Abstract</summary>
+      <div class="abstract">
+        I present a variety of ways that being deputized to speak on someone’s behalf can produce
+        interesting kinds of <em>illocutionary harm</em>. In particular, I show that being
+        deputized to speak for others can lead to important kinds of inability to speak for oneself
+        (in ways not easily remediated). I then argue that this harm is exacerbated in the case of
+        being deputized to speak on God’s behalf.
+        <br/><br/>
+        From an Abrahamic religious perspective, there is a very real threat that so long as the
+        matter about which one speaks is of interest to God, one will not have the ability to
+        guarantee that one fails to thereby speak on God’s behalf. With these results in hand, I
+        draw a modest upshot for the divine hiddenness debate: certain patterns of divine
+        manifestation which would produce non-resistant non-believers are bound up in interesting
+        ways with divine deputizations. Thus, we have a readily recognizable human good at stake
+        in such manifestations: the ability to speak merely for ourselves.
+      </div>
+    </details>
+  </div>
+
+  <div class="paper">
+    <a href="https://philarchive.org/rec/MILEAE-6">Evil and Embodiment: Towards a Latter-day Saint Non-Identity Theodicy</a>
+    (with Derek Haderlie) &mdash; <span class="journal">Religious Studies</span>, 2024
+    <details>
+      <summary>Abstract</summary>
+      <div class="abstract">
+        We offer an account of the metaphysics of persons rooted in Latter-day Saint scripture
+        that vindicates the essentiality of origins. We then give theological support for the claim
+        that prospects for the success of God's soul making project are bound up in God creating
+        particular persons. We observe that these persons would not have existed were it not for
+        the occurrence of a variety of evils (of even the worst kinds), and we conclude that
+        Latter-day Saint theology has the resources to endorse a strong soul-making non-identity
+        theodicy.
+        <br/><br/>
+        We then introduce two complications for this account rooted in the problem of horrendous
+        evils. First, horrendous evils threaten to undermine our confidence that God is good to
+        each created person within the context of their life. And second, horrendous evils raise
+        concerns about the value of persons whose existence depends on the occurrence of those
+        evils. We show that by attending to important structural features of a post-mortem,
+        pre-eschatological state called the spirit world, Latter-day Saints can ameliorate these
+        concerns about horrendous evils.
+      </div>
+    </details>
+  </div>
+
+  <div class="paper">
+    <a href="https://drive.google.com/file/d/1qkD8uNRpFfoC01-358p6kzXmI3w8wwGF/view?usp=sharing">Faith: How to be Partial while Respecting the Evidence</a>
+    (with Derek Haderlie) &mdash; <span class="journal">Australasian Philosophical Review</span> vol. 5, May 2022
+    <details>
+      <summary>Abstract</summary>
+      <div class="abstract">
+        Some think that partiality is a normative requirement of faith. Katherine Dormandy
+        disagrees, arguing that partiality runs afoul of epistemic norms that faith requires.
+        We offer an account of how one can respect the partiality requirement while respecting
+        the epistemic norms as well. Central to the account is the role that <em>confrontation</em>
+        plays in negotiating faith relationships where the parties have damning evidence about the
+        object of faith. We claim that in confrontation one satisfies the seemingly competing norms
+        for faith.
+      </div>
+    </details>
+  </div>
+
+  <div class="paper">
+    <a href="https://journals.tdl.org/jat/index.php/jat/article/view/378/569">Sider's Puzzle and the Mormon Afterlife</a>
+    (with Derek Haderlie) &mdash; <span class="journal">Journal of Analytic Theology</span> vol. 8, Aug 2020
+    <br/><em style="font-size:0.88rem; color:var(--muted);">Runner-up, Diversifying the Journal of Analytic Theology prize competition</em>
+    <details>
+      <summary>Abstract</summary>
+      <div class="abstract">
+        There is a puzzle about divine justice stemming from the fact that God seems required to
+        judge on the basis of criteria that are vague. Justice is proportional, however, God it
+        seems violates proportionality by sending those on the borderline of heaven to an eternity
+        in hell. This is Ted Sider's problem of Hell and Vagueness. On the face of things, this
+        poses a challenge only to a narrow class of classical Christians, those that hold a
+        retributive theory of divine punishment. We show that this puzzle can be extended to the
+        picture of divine judgement and the afterlife found in Mormon theology.
+        <br/><br/>
+        We argue that appearances are misleading. While it may be true that no place in the Mormon
+        afterlife is bad in the sense that its inhabitants suffer eternal bodily harm, it is true
+        that many of the places in the Mormon afterlife are bad in the sense that their inhabitants
+        lack access to significant goods. This allows Sider's puzzle to re-engage as a puzzle about
+        distributive justice. After setting out this version of the puzzle, we argue that Mormon
+        theology has sufficient resources to reject proportionality as a constraint on divine
+        judgment by adopting a nuanced version of universalism.
+      </div>
+    </details>
+  </div>
+  <!-- ── In Progress ── -->
+  <div class="section-label"><span>In Progress</span></div>
+  <ul class="in-progress-list">
+    <li>A paper arguing that the empty world is impossible that is valid in K@.</li>
+    <li>A paper arguing that there is no connection problem.</li>
+    <li>A paper arguing that essences can't ground metaphysical necessities.</li>
+    <li>A paper on the form of grounding explanations.</li>
+    <li>A paper on voluntaristic accounts of metaphysical necessity.</li>
+    <li>A paper on the status of modal ontological arguments in LDS tradition.</li>
+    <li>A paper on the LDS doctrine of spiritual creation and the problem of animal suffering.</li>
+  </ul>
+
+  <!-- ════════════════════════════════════
+       CV
+       ════════════════════════════════════ -->
+  <div class="section-label" id="cv"><span>Curriculum Vitae</span></div>
+  <div class="cv-block">
+    <a href="https://www.taylor-grey.com/wp-content/uploads/2024/12/Taylor-Grey-Miller-CV.pdf"
+       target="_blank">Download CV (PDF)</a>
+  </div>
+
+  <!-- ════════════════════════════════════
+       CONTACT
+       ════════════════════════════════════ -->
+  <div class="section-label" id="contact"><span>Contact</span></div>
+  <address>
+    Taylor-Grey Miller<br/>
+    Department of Philosophy<br/>
+    Brigham Young University<br/>
+    <a href="mailto:taylorgrey.miller@gmail.com">taylorgrey.miller@gmail.com</a>
+  </address>
+
+  <div class="profiles" style="margin-top:20px;">
+    <a href="https://philpeople.org/profiles/taylor-grey-miller" target="_blank">PhilPeople profile</a>
+    <a href="https://ldsphilosophyproject.humwp.byu.edu/" target="_blank">LDS Philosophy Project</a>
+  </div>
+
+  <footer>
+    &copy; Taylor-Grey Miller &nbsp;·&nbsp; Department of Philosophy, Brigham Young University
+  </footer>
+
+</div>
+</body>
+</html>
